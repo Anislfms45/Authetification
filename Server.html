@@ -89,9 +89,8 @@
       function Get_us_current_Date(){
         let Current_Date = new Date();
 
-      let zdk = (Current_Date.getDate() + "" + Current_Date.getMonth() + "" + Current_Date.getFullYear() 
-      
-      +((Current_Date.getMinutes() < 10 ? "0" : "")+ Current_Date.getMinutes()) + (Current_Date.getSeconds() < 10 ? "0" : '') + Current_Date.getSeconds());
+let zdk = (Current_Date.getDate() + "" + (Current_Date.getMonth()+1) + "" + Current_Date.getFullYear()+((Current_Date.getHours() < 10 ? "0" : "")+ Current_Date.getHours()) + (Current_Date.getMinutes() < 10 ? "0" : '') + Current_Date.getMinutes());
+        console.log(zdk);
         return zdk;
     }
       function Get_New_Key_For_Pm(){
@@ -116,7 +115,6 @@
       let Returnedstring= Get_us_Keys( _Revers_right,Last_elemnt , zdk);;
           //We use another function
       let Secret_code = ((2 / Math.PI) * Math.atan((Math.PI / 2) *Returnedstring)).toString();
-      console.log(Secret_code);
       document.getElementById('demo').innerText = "Your Code is : " + Secret_code.substr(4, 8);
      
     }
