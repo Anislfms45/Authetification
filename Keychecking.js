@@ -1,10 +1,27 @@
+var KeyHolder;
+var essaie_permis=0;
+function check_equals (){
+
+    if(KeyHolder == document.getElementById("input").value){
+        alert("true code");
+    }else{
+        alert("false");
+        essaie_permis++;
+    }
+    if(essaie_permis == 5){
+        alert("Aborting 5");
+        window.close();
+    }
+}
+
+
 setInterval(
     () => {
 
       let time = 59 - new Date().getSeconds();
-      document.getElementById("conter").innerText ="Time Left : " + (59 - new Date().getSeconds());
+      
       if (time == 0) {
-        setTimeout(() =>Pm_Am_(), 1000);
+        document.getElementById("ListAppend").appendChild( document.createElement("li").appendChild(document.createTextNode(KeyHolder)));  
 
       }
     }
@@ -78,6 +95,7 @@ let zdk = (Current_Date.getDate() + "" + (Current_Date.getMonth()+1) + "" + Curr
     //We use A function 
     let Secret_code = (Returned_string/ (1+Returned_string)).toString();
     console.log(Secret_code.substr(4 , 8 ));
+    KeyHolder = Secret_code.substr(4,8);
 
     document.getElementById('demo').innerText = "Your Code is : " + Secret_code.substr(4, 8);
     
@@ -92,7 +110,6 @@ let zdk = (Current_Date.getDate() + "" + (Current_Date.getMonth()+1) + "" + Curr
     let Returnedstring= Get_us_Keys( _Revers_right,Last_elemnt , zdk);;
         //We use another function
     let Secret_code = ((2 / Math.PI) * Math.atan((Math.PI / 2) *Returnedstring)).toString();
-    
-    document.getElementById('demo').innerText = "Your Code is : " + Secret_code.substr(4, 8);
-      console.log(Secret_code.substr(4 , 8 ));
+    KeyHolder = Secret_code.substr(4,8);
+
   }

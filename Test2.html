@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body onload="laod()"  style="margin : 0 ; background-color:cyan">
+
+
+  <div
+    style="width : 100% ; height :100vh ;display: flex; justify-content: center; align-items: center; flex-direction:column;">
+
+    <p id="demo" style='font-size:10vmin;'></p>
+    <p id="conter" style="font-size: 8vmin;">Test</p>
+
+
+  </div>
+
+
+  <script>
+      var TT=[];
+      var ZZZzz=[];
+      function laod(){
+      var aaa = 0 ;
+      var zzz = 0;
+   
+      while(aaa <= 23){
+         while(zzz <= 59){
+        aaa >= 12 ?Get_New_Key_For_AM() : Get_New_Key_For_Pm ();
+        
+      function _Revers_Left(Last_elemnt , zdk){
+        let alpha = [];
+        while (Last_elemnt > 0) {
+        for (let i = zdk.length -1 ; i >0; i--) {
+          alpha[i-1] = zdk[i]
+        }
+        alpha[zdk.length-1] = zdk[0];
+        zdk = alpha
+        alpha = [];
+        Last_elemnt--;
+      }
+      return zdk;
+      }
+      function _Revers_right(Last_elemnt , zdk){
+        let alpha = [];
+        while (Last_elemnt > 0) {
+        for (let i = 0; i < zdk.length - 1; i++) {
+          alpha[i + 1] = zdk[i]
+        }
+        alpha[0] = zdk[zdk.length - 1];
+        zdk = alpha
+        alpha = [];
+        Last_elemnt--;
+    }
+    return zdk
+
+      }
+      function Get_us_Keys(Callback , ele ,list){
+          let zdk = Callback(ele , list);
+        let beta = zdk.toString().replace(/,/g, '');
+      let j = 0;
+      let table = [];
+      while (j < zdk.length) {
+
+        table.push(zdk[j]);
+        j++;
+      }
+      let array = table.reverse();
+      array = array.toString().replace(/,/g, '');
+      let dision;
+      if (array < beta) {
+        dision = beta / array;
+      } else {
+        dision = array / beta;
+      }
+
+      return dision;
+      }
+    
+      function Get_New_Key_For_Pm(){
+        let Current_Date = new Date();
+        let flash = aaa < 10 ? "0"+aaa : aaa;
+        let betz = zzz <10 ? "0"+zzz : zzz;
+
+        let zdk = (Current_Date.getDate()+ "" + (Current_Date.getMonth()+1) + "" + Current_Date.getFullYear() +""+ flash + ""+betz);
+        console.log(zdk)
+      let First_elemnt = parseInt(zdk[zdk.length -1 ]);
+      let Returned_string = Get_us_Keys(_Revers_Left ,First_elemnt , zdk);
+      //We use A function 
+      let Secret_code = (Returned_string/ (1+Returned_string)).toString();
+      document.getElementById('demo').innerText = "Your Code is : " + Secret_code.substr(4, 8);
+      TT.push(Secret_code.substr(4, 8));
+      
+      }
+
+    function Get_New_Key_For_AM() {
+
+      let Current_Date = new Date();
+      let flash = aaa < 10 ? "0"+aaa : aaa;
+        let betz = zzz <10 ? "0"+zzz : zzz;
+     
+        
+
+      let zdk = (Current_Date.getDate()+ "" + (Current_Date.getMonth()+1) + "" + Current_Date.getFullYear() +""+ flash + ""+betz);
+     
+
+      let Last_elemnt = parseInt(zdk[zdk.length - 1]);
+    
+      let Returnedstring= Get_us_Keys( _Revers_right,Last_elemnt , zdk);;
+          //We use another function
+      let Secret_code = ((2 / Math.PI) * Math.atan((Math.PI / 2) *Returnedstring)).toString();
+      document.getElementById('demo').innerText = "Your Code is : " + Secret_code.substr(4, 8);
+      TT.push(Secret_code.substr(4, 8));
+
+     
+    }
+
+      zzz++;
+    }
+    zzz=0;
+      aaa++;
+    }
+ 
+    console.log(TT.length);
+var zdkddd=0;
+    var zee =0;
+    while(zee < TT.length -1){
+        let zigbe = zee + 1 ;
+        while(zigbe < TT.length){
+            if(TT[zee] == TT[zigbe]){
+                zdkddd++;
+                
+            }
+            zigbe++;
+        }
+
+
+        zee++;
+    }
+    alert(zdkddd);
+}
+
+      
+     
+
+
+  </script>
+
+
+
+
+
+</body>
+
+</html>
