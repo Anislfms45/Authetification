@@ -4,7 +4,7 @@ setInterval(
       let time = 59 - new Date().getSeconds();
       document.getElementById("conter").innerText ="Time Left : " + (59 - new Date().getSeconds());
       if (time == 0) {
-        setTimeout(() =>Pm_Am_(), 1000);
+        setTimeout(() =>Pm_Am_(), 500);
 
       }
     }

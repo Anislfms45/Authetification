@@ -21,8 +21,8 @@ setInterval(
       let time = 59 - new Date().getSeconds();
       
       if (time == 0) {
-        document.getElementById("ListAppend").appendChild( document.createElement("li").appendChild(document.createTextNode(KeyHolder)));  
-
+        setTimeout(() =>Pm_Am_(), 500);
+          
       }
     }
     , 1000)
@@ -94,10 +94,10 @@ let zdk = (Current_Date.getDate() + "" + (Current_Date.getMonth()+1) + "" + Curr
     let Returned_string = Get_us_Keys(_Revers_Left ,First_elemnt , zdk);
     //We use A function 
     let Secret_code = (Returned_string/ (1+Returned_string)).toString();
-    console.log(Secret_code.substr(4 , 8 ));
     KeyHolder = Secret_code.substr(4,8);
 
-    document.getElementById('demo').innerText = "Your Code is : " + Secret_code.substr(4, 8);
+    Append_to_list();
+
     
     }
     function Get_New_Key_For_AM() {
@@ -111,5 +111,14 @@ let zdk = (Current_Date.getDate() + "" + (Current_Date.getMonth()+1) + "" + Curr
         //We use another function
     let Secret_code = ((2 / Math.PI) * Math.atan((Math.PI / 2) *Returnedstring)).toString();
     KeyHolder = Secret_code.substr(4,8);
+    Append_to_list();
+
+
+  }
+  function Append_to_list(){
+    var ul = document.getElementById("ListAppend");
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode(KeyHolder));
+    ul.appendChild(li);
 
   }
